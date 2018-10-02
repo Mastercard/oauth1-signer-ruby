@@ -1,13 +1,15 @@
-%w[rubygems rake rake/clean rake/testtask fileutils bundler].each { |f| require f }
-
-Bundler::GemHelper.install_tasks
+require 'rubygems'
+require 'rake'
+require 'rake/clean'
+require 'rake/testtask'
 
 Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.test_files = FileList['test/**/*test*.rb']
+  t.libs << "tests"
+  t.test_files = FileList['tests/*test*.rb']
   t.verbose = true
 end
 
 Dir['tasks/**/*.rake'].each { |t| load t }
 
+desc "Run tests"
 task :default => :test
