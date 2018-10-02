@@ -16,7 +16,7 @@ class OAuth
     # @param {String} signingKey The private key that will be used for signing the request that corresponds to the consumerKey
     # @return {String} Valid OAuth1.0a signature with a body hash when payload is present
     #
-    def get_authorization_header (uri, method, payload, consumer_key, signing_key)
+    def get_authorization_header(uri, method, payload, consumer_key, signing_key)
       query_params = extract_query_params(uri)
       oauth_params = get_oauth_params(consumer_key, payload)
 
@@ -196,7 +196,7 @@ class OAuth
     # @return {String} RSA signature matching the contents of signature base string
     #
     # noinspection RubyArgCount
-    def OAuth.sign_signature_base_string (sbs, signing_key)
+    def OAuth.sign_signature_base_string(sbs, signing_key)
       digest = OpenSSL::Digest::SHA256.new
       rsa_key = OpenSSL::PKey::RSA.new signing_key
 

@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'minitest/test'
+require 'minitest/mock'
 require_relative '../lib/oauth'
 
 class TestGetNonce < Test::Unit::TestCase
