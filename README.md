@@ -12,6 +12,11 @@ Zero dependency library for generating a Mastercard API compliant OAuth signatur
 ## Compatibility
 Ruby 2.5.1
 
+# Configure
+`gem build *.gemspec`
+
+`gem install *.gem`
+
 ## References
 [OAuth 1.0a specification](https://tools.ietf.org/html/rfc5849)
 
