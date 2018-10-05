@@ -1,5 +1,6 @@
 require 'base64'
 require 'openssl'
+require 'uri'
 
 class OAuth
   class << self
