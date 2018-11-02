@@ -1,8 +1,9 @@
+require 'minitest/autorun'
 require 'test/unit'
 require 'minitest/mock'
 require_relative '../lib/oauth'
 
-class TestGetBodyHash < Test::Unit::TestCase
+class TestGetBodyHash < Minitest::Test
 
   def test_creates_base64_encoded_cryptographic_hash_of_the_given_payload
     my_payload = '{ my: "payload" }'

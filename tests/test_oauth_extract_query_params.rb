@@ -1,7 +1,8 @@
+require 'minitest/autorun'
 require 'test/unit'
 require_relative '../lib/oauth'
 
-class TestOAuthExtractQueryParams < Test::Unit::TestCase
+class TestOAuthExtractQueryParams < Minitest::Test
 
   @test_href = ''
   @query_params = ''
@@ -12,7 +13,7 @@ class TestOAuthExtractQueryParams < Test::Unit::TestCase
   end
 
   def test_should_return_a_map
-    assert_true @query_params.instance_of? Hash
+    assert_equal true, (@query_params.instance_of? Hash)
   end
 
   def test_query_parameter_keys_should_be_sorted
@@ -24,20 +25,20 @@ class TestOAuthExtractQueryParams < Test::Unit::TestCase
   def test_query_parameter_values_should_be_sorted_Values_for_parameters_with_the_same_name_are_added_into_a_list
     # Format
     values_format = @query_params['Format']
-    assert_true values_format.instance_of?(Array)
+    assert_equal true, values_format.instance_of?(Array)
     assert_equal(values_format.size, 2)
     assert_equal values_format, %w[JSON XML]
 
     # MerchantId
     values_merchant_id = @query_params['MerchantId']
-    assert_true values_format.instance_of?(Array)
+    assert_equal true, values_format.instance_of?(Array)
     assert_equal(values_merchant_id.size, 1)
     assert_equal values_merchant_id, ['GOOGLE%20LTD%20ADWORDS%20%28CC%40GOOGLE.COM%29']
 
     # Type
     values_type = @query_params['Type']
     assert_equal(values_type.size, 1)
-    assert_true values_format.instance_of?(Array)
+    assert_equal true,  values_format.instance_of?(Array)
     assert_equal values_type, ['ExactMatch']
   end
 end

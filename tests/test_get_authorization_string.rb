@@ -1,9 +1,10 @@
+require 'minitest/autorun'
 require 'test/unit'
 require 'minitest/mock'
 require_relative '../lib/oauth'
 
 
-class TestGetAuthorizationString < Test::Unit::TestCase
+class TestGetAuthorizationString < Minitest::Test
 
   # Creates a valid OAuth1.0a signature with a body hash when payload is present
   def test_get_authorization_string

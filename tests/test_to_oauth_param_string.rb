@@ -1,8 +1,9 @@
+require 'minitest/autorun'
 require 'test/unit'
 require 'minitest/mock'
 require_relative '../lib/oauth'
 
-class TestToOAuthParamString < Test::Unit::TestCase
+class TestToOAuthParamString < Minitest::Test
 
   def test_creates_a_correctly_encoded_and_sorted_OAuth_parameter_string
 

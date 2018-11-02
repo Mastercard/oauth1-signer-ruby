@@ -1,8 +1,9 @@
+require 'minitest/autorun'
 require 'test/unit'
 require 'minitest/mock'
 require_relative '../lib/oauth'
 
-class TestGetSignatureBaseString < Test::Unit::TestCase
+class TestGetSignatureBaseString < Minitest::Test
 
   def test_creates_a_correctly_constructed_and_escaped_signature_base_string
 

@@ -1,8 +1,9 @@
+require 'minitest/autorun'
 require 'test/unit'
 require 'minitest/mock'
 require_relative '../lib/oauth'
 
-class OAuthTest < Test::Unit::TestCase
+class OAuthTest < Minitest::Test
 
   # Fake tests
   # Creates a valid OAuth1.0a signature with a body hash when payload is present

@@ -1,8 +1,9 @@
+require 'minitest/autorun'
 require 'test/unit'
 require 'minitest/mock'
 require_relative '../lib/oauth'
 
-class TestGetOAuthParams < Test::Unit::TestCase
+class TestGetOAuthParams < Minitest::Test
 
   CONSUMER_KEY = 'aaa!aaa'.freeze
   MY_PAYLOAD = '{ my: "payload" }'.freeze
