@@ -3,9 +3,8 @@ require 'rake'
 require 'rake/clean'
 require 'rake/testtask'
 
-task default: "test"
-
 desc "Run tests"
+task default: "test"
 
 Rake::TestTask.new do |t|
   t.libs << 'tests'
@@ -13,3 +12,4 @@ Rake::TestTask.new do |t|
   t.verbose = true
 end
 
+Dir['tasks/**/*.rake'].each { |t| load t }
