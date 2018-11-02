@@ -2,9 +2,10 @@ require 'rubygems'
 require 'rake'
 require 'rake/clean'
 require 'rake/testtask'
+require 'ci/reporter/rake/minitest'
 
 desc "Run tests"
-task default: "test"
+task default: 'test'
 
 Rake::TestTask.new do |t|
   t.libs << 'tests'
@@ -13,3 +14,5 @@ Rake::TestTask.new do |t|
 end
 
 Dir['tasks/**/*.rake'].each { |t| load t }
+
+task :report => ['ci:setup:minitest', 'test']
