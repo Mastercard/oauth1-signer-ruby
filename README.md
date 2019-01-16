@@ -42,9 +42,9 @@ The method that does all the heavy lifting is `OAuth.get_authorization_header`. 
 
 ```ruby
 consumer_key = "<insert consumer key from developer portal>";
-// get length bytes of p12 file
+# get length bytes of p12 file
 is = File.binread ("<p12 file path>");
-// get private key matching the consumer key as string
+# get private key matching the consumer key as string
 signing_key = OpenSSL::PKCS12.new (is, "<key_store_password>").key;
  
 uri = "https://sandbox.api.mastercard.com/service";
