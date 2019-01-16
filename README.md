@@ -18,7 +18,7 @@
 Zero dependency library for generating a Mastercard API compliant OAuth signature.
 
 ### Compatibility <a name="compatibility"></a>
-Ruby 2.5.1
+Ruby [2.5.1+](https://www.ruby-lang.org/en/news/2018/03/28/ruby-2-5-1-released/)
 
 ### References <a name="references"></a>
 * [OAuth 1.0a specification](https://tools.ietf.org/html/rfc5849)
@@ -35,17 +35,17 @@ As part of this set up, you'll receive credentials for your app:
 
 ### Adding the Library to Your Project <a name="adding-the-library-to-your-project"></a>
 
-`gem install mastercard_oauth1_signer_ruby`
+```
+gem install mastercard_oauth1_signer_ruby
+```
 
 ### Creating the OAuth Authorization Header
 The method that does all the heavy lifting is `OAuth.get_authorization_header`. You can call into it directly and as long as you provide the correct parameters, it will return a string that you can add into your request's `Authorization` header.
 
 ```ruby
-consumer_key = "<insert consumer key from developer portal>";
-# get length bytes of p12 file
-is = File.binread ("<p12 file path>");
-# get private key matching the consumer key as string
-signing_key = OpenSSL::PKCS12.new (is, "<key_store_password>").key;
+consumer_key = "<insert consumer key>";
+is = File.binread ("<insert PKCS#12 key file path>");
+signing_key = OpenSSL::PKCS12.new (is, "<insert key password>").key;
  
 uri = "https://sandbox.api.mastercard.com/service";
 method = "POST";
