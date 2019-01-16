@@ -1,40 +1,48 @@
-# Table of contents
+# oauth1-signer-ruby
+
+[![Build Status](https://travis-ci.org/Mastercard/oauth1-signer-ruby.svg?branch=master)](https://travis-ci.org/Mastercard/oauth1-signer-ruby)
+[![RubyGems](https://img.shields.io/gem/v/mastercard_oauth1_signer_ruby.svg)](https://rubygems.org/gems/mastercard_oauth1_signer_ruby)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/Mastercard/oauth1-signer-ruby/blob/master/LICENSE)
+
+
+## Table of Contents
 - [Overview](#overview)
   * [Compatibility](#compatibility)
   * [References](#references)
 - [Usage](#usage)
   * [Prerequisites](#prerequisites)
-  * [Creating a valid OAuth string](#creating-a-valid-oauth-string)
+  * [Adding the Library to Your Project](#adding-the-library-to-your-project)
+  * [Creating the OAuth Authorization Header](#creating-the-oauth-authorization-header)
 
-# Overview
+## Overview <a name="overview"></a>
 Zero dependency library for generating a Mastercard API compliant OAuth signature.
 
-## Compatibility
+### Compatibility <a name="compatibility"></a>
 Ruby 2.5.1
 
-# Configure
+### References <a name="references"></a>
+* [OAuth 1.0a specification](https://tools.ietf.org/html/rfc5849)
+* [Body hash extension for non application/x-www-form-urlencoded payloads](https://tools.ietf.org/id/draft-eaton-oauth-bodyhash-00.html)
+
+
+## Usage <a name="usage"></a>
+### Prerequisites <a name="prerequisites"></a>
+Before using this library, you will need to set up a project in the [Mastercard Developers Portal](https://developer.mastercard.com). 
+
+As part of this set up, you'll receive credentials for your app:
+* A consumer key (displayed on the Mastercard Developer Portal)
+* A private request signing key (matching the public certificate displayed on the Mastercard Developer Portal)
+
+### Adding the Library to Your Project <a name="adding-the-library-to-your-project"></a>
+
 `gem build *.gemspec`
 
 `gem install *.gem`
 
-## References
-[OAuth 1.0a specification](https://tools.ietf.org/html/rfc5849)
+### Creating the OAuth Authorization Header
+The method that does all the heavy lifting is `OAuth.get_authorization_header`. You can call into it directly and as long as you provide the correct parameters, it will return a string that you can add into your request's `Authorization` header.
 
-[Body hash extension for non application/x-www-form-urlencoded payloads](https://tools.ietf.org/id/draft-eaton-oauth-bodyhash-00.html)
-
-# Usage
-## Prerequisites
-Before using this library, you will need to set up a project and key in the [Mastercard Developers Portal](https://developer.mastercard.com). 
-
-The two key pieces of information you will need are:
-
-* Consumer key
-* Private key matching the public key uploaded to Mastercard Developer Portal
-
-## Creating a valid OAuth string
-The method that does all the heavy lifting is `OAuth.getAuthorizationHeader`. You can call into it directly and as long as you provide the correct parameters, it will return a string that you can add into your request's `Authorization` header.
-
-```javascript
+```ruby
 	consumer_key = "<insert consumer key from developer portal>";
 	// get length bytes of p12 file
 	is = File.binread ("<p12 file path>");
