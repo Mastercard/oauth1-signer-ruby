@@ -1,6 +1,5 @@
 language: ruby
 rvm:
-  - 2.2
-  - jruby
   - truffleruby
   - 2.5.1
+  - 2.6.0
