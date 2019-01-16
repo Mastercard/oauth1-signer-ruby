@@ -3,3 +3,7 @@ rvm:
   - truffleruby
   - 2.5.1
   - 2.6.0
+script: 
+  - gem build *.gemspec
+  - gem install *.gem 
+  - rake test
