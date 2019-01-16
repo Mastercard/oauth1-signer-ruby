@@ -36,13 +36,13 @@ The method that does all the heavy lifting is `OAuth.getAuthorizationHeader`. Yo
 
 ```javascript
 	consumer_key = "<insert consumer key from developer portal>";
-    // get length bytes of p12 file
+	// get length bytes of p12 file
 	is = File.binread ("<p12 file path>");
 	// get private key matching the consumer key as string
 	signing_key = OpenSSL::PKCS12.new (is, "<key_store_password>").key;
 	 
 	uri = "https://sandbox.api.mastercard.com/service";
-	method = "GET";
+	method = "POST";
 	payload = "Hello world!";
 
 	authHeader = OAuth.get_authorization_header(uri, method, payload, consumer_key, signing_key);
