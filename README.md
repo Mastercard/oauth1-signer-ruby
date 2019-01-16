@@ -18,7 +18,8 @@
 Zero dependency library for generating a Mastercard API compliant OAuth signature.
 
 ### Compatibility <a name="compatibility"></a>
-Ruby [2.5.1+](https://www.ruby-lang.org/en/news/2018/03/28/ruby-2-5-1-released/)
+* Ruby [2.5.1+](https://www.ruby-lang.org/en/news/2018/03/28/ruby-2-5-1-released/)
+* Truffle Ruby 1.0.0+
 
 ### References <a name="references"></a>
 * [OAuth 1.0a specification](https://tools.ietf.org/html/rfc5849)
