@@ -1,7 +1,7 @@
 # oauth1-signer-ruby
 
 [![Build Status](https://travis-ci.org/Mastercard/oauth1-signer-ruby.svg?branch=master)](https://travis-ci.org/Mastercard/oauth1-signer-ruby)
-[![RubyGems](https://img.shields.io/gem/v/mastercard_oauth1_signer_ruby.svg)](https://rubygems.org/gems/mastercard_oauth1_signer_ruby)
+[![RubyGems](https://img.shields.io/gem/v/mastercard_oauth1_signer.svg)](https://rubygems.org/gems/mastercard_oauth1_signer)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/Mastercard/oauth1-signer-ruby/blob/master/LICENSE)
 
 
