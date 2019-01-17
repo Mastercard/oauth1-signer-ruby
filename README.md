@@ -37,7 +37,7 @@ As part of this set up, you'll receive credentials for your app:
 ### Adding the Library to Your Project <a name="adding-the-library-to-your-project"></a>
 
 ```
-gem install mastercard_oauth1_signer_ruby
+gem install mastercard_oauth1_signer
 ```
 
 ### Creating the OAuth Authorization Header
