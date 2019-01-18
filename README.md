@@ -12,6 +12,7 @@
 - [Usage](#usage)
   * [Prerequisites](#prerequisites)
   * [Adding the Library to Your Project](#adding-the-library-to-your-project)
+  * [Loading the Signing Key](#loading-the-signing-key) 
   * [Creating the OAuth Authorization Header](#creating-the-oauth-authorization-header)
 
 ## Overview <a name="overview"></a>
@@ -40,17 +41,19 @@ As part of this set up, you'll receive credentials for your app:
 gem install mastercard_oauth1_signer
 ```
 
+### Loading the Signing Key <a name="loading-the-signing-key"></a>
+```ruby
+is = File.binread ("<insert PKCS#12 key file path>");
+signing_key = OpenSSL::PKCS12.new (is, "<insert key password>").key;
+```
+
 ### Creating the OAuth Authorization Header
 The method that does all the heavy lifting is `OAuth.get_authorization_header`. You can call into it directly and as long as you provide the correct parameters, it will return a string that you can add into your request's `Authorization` header.
 
 ```ruby
 consumer_key = "<insert consumer key>";
-is = File.binread ("<insert PKCS#12 key file path>");
-signing_key = OpenSSL::PKCS12.new (is, "<insert key password>").key;
- 
 uri = "https://sandbox.api.mastercard.com/service";
 method = "POST";
 payload = "Hello world!";
-
 authHeader = OAuth.get_authorization_header(uri, method, payload, consumer_key, signing_key);
 ```
