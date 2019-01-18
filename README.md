@@ -42,6 +42,8 @@ gem install mastercard_oauth1_signer
 ```
 
 ### Loading the Signing Key <a name="loading-the-signing-key"></a>
+
+The following code shows how to load the private key using `OpenSSL`:
 ```ruby
 is = File.binread ("<insert PKCS#12 key file path>");
 signing_key = OpenSSL::PKCS12.new (is, "<insert key password>").key;
