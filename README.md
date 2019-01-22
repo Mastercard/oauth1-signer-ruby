@@ -26,7 +26,6 @@ Zero dependency library for generating a Mastercard API compliant OAuth signatur
 * [OAuth 1.0a specification](https://tools.ietf.org/html/rfc5849)
 * [Body hash extension for non application/x-www-form-urlencoded payloads](https://tools.ietf.org/id/draft-eaton-oauth-bodyhash-00.html)
 
-
 ## Usage <a name="usage"></a>
 ### Prerequisites <a name="prerequisites"></a>
 Before using this library, you will need to set up a project in the [Mastercard Developers Portal](https://developer.mastercard.com). 
@@ -37,7 +36,7 @@ As part of this set up, you'll receive credentials for your app:
 
 ### Adding the Library to Your Project <a name="adding-the-library-to-your-project"></a>
 
-```
+```shell
 gem install mastercard_oauth1_signer
 ```
 
