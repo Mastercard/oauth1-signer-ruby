@@ -14,6 +14,7 @@
   * [Adding the Library to Your Project](#adding-the-library-to-your-project)
   * [Loading the Signing Key](#loading-the-signing-key) 
   * [Creating the OAuth Authorization Header](#creating-the-oauth-authorization-header)
+  * [Integrating with OpenAPI Generator API Client Libraries](#integrating-with-openapi-generator-api-client-libraries)
 
 ## Overview <a name="overview"></a>
 Zero dependency library for generating a Mastercard API compliant OAuth signature.
@@ -37,7 +38,7 @@ As part of this set up, you'll receive credentials for your app:
 ### Adding the Library to Your Project <a name="adding-the-library-to-your-project"></a>
 
 ```shell
-gem install mastercard_oauth1_signer
+gem install mastercard_oauth1_signer.gem
 ```
 
 ### Loading the Signing Key <a name="loading-the-signing-key"></a>
@@ -57,4 +58,45 @@ uri = "https://sandbox.api.mastercard.com/service";
 method = "POST";
 payload = "Hello world!";
 authHeader = OAuth.get_authorization_header(uri, method, payload, consumer_key, signing_key);
+```
+
+### Integrating with OpenAPI Generator API Client Libraries <a name="integrating-with-openapi-generator-api-client-libraries"></a>
+
+[OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) generates API client libraries from [OpenAPI Specs](https://github.com/OAI/OpenAPI-Specification). 
+It provides generators and library templates for supporting multiple languages and frameworks.
+
+Generators currently supported:
++ [Ruby](#Ruby)
+
+#### Ruby <a name="javascript"></a>
+
+##### OpenAPI Generator
+
+Client libraries can be generated using the following command:
+```shell
+java -jar openapi-generator-cli.jar generate -i openapi-spec.yaml -g ruby -o out
+```
+See also: [CONFIG OPTIONS for ruby](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/ruby.md).
+
+##### Callback method Typhoeus.Before
+
+The Authorization header can be hook into before a request run: 
+
+```javascript
+config = OpenapiClient::Configuration.default
+api_client = OpenapiClient::ApiClient.new
+config.basePath = "https://sandbox.api.mastercard.com"
+
+Typhoeus.before { |request|
+  authHeader =
+      OAuth.get_authorization_header request.base_url, request.options[:method],
+                                     request.options[:body], consumer_key, signing_key.key
+  request.options[:headers] = request.options[:headers].merge({'Authorization' => authHeader})
+}
+    
+serviceApi = service.ServiceApi.new api_client
+serviceApi.api_client.config = config
+opts = {}
+serviceApi.call opts
+// ...
 ```
