@@ -66,9 +66,9 @@ authHeader = OAuth.get_authorization_header(uri, method, payload, consumer_key, 
 It provides generators and library templates for supporting multiple languages and frameworks.
 
 Generators currently supported:
-+ [Ruby](#Ruby)
++ [ruby](#ruby)
 
-#### Ruby <a name="javascript"></a>
+#### ruby <a name="ruby"></a>
 
 ##### OpenAPI Generator
 
@@ -78,11 +78,11 @@ java -jar openapi-generator-cli.jar generate -i openapi-spec.yaml -g ruby -o out
 ```
 See also: [CONFIG OPTIONS for ruby](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/ruby.md).
 
-##### Callback method Typhoeus.Before
+##### Callback method `Typhoeus.before`
 
-The Authorization header can be hook into before a request run: 
+The Authorization header can be hooked into before a request run: 
 
-```javascript
+```ruby
 config = OpenapiClient::Configuration.default
 api_client = OpenapiClient::ApiClient.new
 config.basePath = "https://sandbox.api.mastercard.com"
@@ -101,3 +101,5 @@ opts = {}
 serviceApi.call opts
 // ...
 ```
+
+See also: https://www.rubydoc.info/github/typhoeus/typhoeus/Typhoeus.before
