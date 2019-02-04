@@ -86,6 +86,7 @@ The Authorization header can be hook into before a request run:
 config = OpenapiClient::Configuration.default
 api_client = OpenapiClient::ApiClient.new
 config.basePath = "https://sandbox.api.mastercard.com"
+api_client.config = config
 
 Typhoeus.before { |request|
   authHeader =
@@ -95,7 +96,7 @@ Typhoeus.before { |request|
 }
     
 serviceApi = service.ServiceApi.new api_client
-serviceApi.api_client.config = config
+
 opts = {}
 serviceApi.call opts
 // ...
