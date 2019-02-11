@@ -16,7 +16,6 @@ matrix:
       - WITH_SONAR_ANALYSIS=true
       - SONAR_SCANNER_VERSION=3.3.0.1492
 install:
-  - bundle install --jobs=3 --retry=3
   - |
     test $WITH_SONAR_ANALYSIS \
        && wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION.zip \
