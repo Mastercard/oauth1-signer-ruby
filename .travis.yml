@@ -30,7 +30,7 @@ after_success:
       -Dsonar.projectName=$SONAR_PROJECT_NAME \
       -Dsonar.projectKey=$SONAR_PROJECT_KEY \
       -Dsonar.organization=$SONAR_ORGANIZATION_KEY \
-      -Dsonar.sources=./src \
-      -Dsonar.tests=./test \
+      -Dsonar.sources=./lib \
+      -Dsonar.tests=./tests \
       -Dsonar.host.url=$SONAR_URL \
       -Dsonar.login=$SONAR_TOKEN || echo 'Skipping Sonar Scanner execution'  
