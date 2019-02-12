@@ -1,5 +1,3 @@
-if ENV["COVERAGE"]
-  require 'simplecov'
-  SimpleCov.start
-end
+require 'simplecov'
+SimpleCov.start
 require 'minitest/autorun'
