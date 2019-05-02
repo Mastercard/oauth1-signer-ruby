@@ -12,4 +12,11 @@ class TestGetBaseUriString < Minitest::Test
 
     assert_equal(base_uri, 'https://sandbox.api.mastercard.com/merchantid/v1/merchantid')
   end
+
+  def test_creates_a_normalized_url_with_uppercase_path
+    href = 'https://sandbox.api.mastercard.com/merchantid/v1/getMerchantId?MerchantId=GOOGLE%20LTD%20ADWORDS%20%28CC%40GOOGLE.COM%29&Format=XML&Type=ExactMatch&Format=JSON'
+    base_uri = OAuth.get_base_uri_string(href)
+
+    assert_equal(base_uri, 'https://sandbox.api.mastercard.com/merchantid/v1/getMerchantId')
+  end
 end
