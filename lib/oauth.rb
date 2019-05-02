@@ -115,7 +115,7 @@ class OAuth
       url = URI.parse(uri)
       # Lowercase scheme and authority
       # Remove query and fragment
-      "#{url.scheme.downcase}://#{url.host.downcase}#{url.path.downcase}"
+      "#{url.scheme.downcase}://#{url.host.downcase}#{url.path}"
     end
 
     #
