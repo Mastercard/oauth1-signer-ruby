@@ -1,7 +1,8 @@
 # oauth1-signer-ruby
 
 [![](https://travis-ci.org/Mastercard/oauth1-signer-ruby.svg?branch=master)](https://travis-ci.org/Mastercard/oauth1-signer-ruby)
-[![](https://sonarcloud.io/api/project_badges/measure?project=Mastercard_oauth1-signer-ruby&metric=alert_status)](https://sonarcloud.io/dashboard?id=Mastercard_oauth1-signer-ruby) 
+[![](https://sonarcloud.io/api/project_badges/measure?project=Mastercard_oauth1-signer-ruby&metric=alert_status)](https://sonarcloud.io/dashboard?id=Mastercard_oauth1-signer-ruby)
+[![](https://sonarcloud.io/api/project_badges/measure?project=Mastercard_oauth1-signer-ruby&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Mastercard_oauth1-signer-ruby)
 [![](https://img.shields.io/gem/v/mastercard_oauth1_signer.svg)](https://rubygems.org/gems/mastercard_oauth1_signer)
 [![](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/Mastercard/oauth1-signer-ruby/blob/master/LICENSE)
 
