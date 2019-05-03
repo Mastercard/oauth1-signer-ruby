@@ -3,7 +3,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Mastercard"]
   gem.summary       = %q{OAuth signature SDK}
   gem.description   = %q{Zero dependency library for generating a Mastercard API compliant OAuth signature}
-  gem.version       = "1.0.2"
+  gem.version       = "1.1.0"
   gem.license       = "MIT"
   gem.homepage      = "https://github.com/Mastercard/oauth1-signer-ruby"
   gem.files         = Dir["{bin,spec,lib}/**/*"]+ Dir["data/*"] + ["oauth1_signer_ruby.gemspec"]
