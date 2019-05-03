@@ -98,7 +98,7 @@ class OAuth
       oauth_params.each {|entry|
         entry_key = entry[0]
         entry_val = entry[1]
-        header = "#{header}#{entry_key} = '#{entry_val}',"
+        header = "#{header}#{entry_key}=\"#{entry_val}\","
       }
       # Remove trailing ,
       header.slice(0, header.length - 1)

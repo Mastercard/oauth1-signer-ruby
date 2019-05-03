@@ -17,7 +17,7 @@ class OAuthTest < Minitest::Test
       OAuth.stub(:sign_signature_base_string, "XXX") do
         OAuth.stub(:time_stamp, "1524771555") do
           header = OAuth.get_authorization_header uri, method, nil, consumer_key, signing_key
-          assert_equal header, "OAuth oauth_consumer_key = 'aaa!aaa',oauth_nonce = 'uTeLPs6K',oauth_signature_method = 'RSA-SHA256',oauth_timestamp = '1524771555',oauth_version = '1.0',oauth_signature = 'XXX'"
+          assert_equal header, 'OAuth oauth_consumer_key="aaa!aaa",oauth_nonce="uTeLPs6K",oauth_signature_method="RSA-SHA256",oauth_timestamp="1524771555",oauth_version="1.0",oauth_signature="XXX"'
         end
       end
     end
