@@ -14,7 +14,7 @@ class TestGetAuthorizationString < Minitest::Test
       OAuth.stub(:time_stamp, "1524771555") do
         oauth_params = OAuth.get_oauth_params consumer_key
         authorization_string = OAuth.get_authorization_string oauth_params
-        assert_equal authorization_string, "OAuth oauth_consumer_key='aaa!aaa',oauth_nonce='uTeLPs6K',oauth_signature_method='RSA-SHA256',oauth_timestamp='1524771555',oauth_version='1.0'"
+        assert_equal authorization_string, 'OAuth oauth_consumer_key="aaa!aaa",oauth_nonce="uTeLPs6K",oauth_signature_method="RSA-SHA256",oauth_timestamp="1524771555",oauth_version="1.0"'
       end
     end
   end
