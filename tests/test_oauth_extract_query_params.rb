@@ -41,4 +41,33 @@ class TestOAuthExtractQueryParams < Minitest::Test
     assert_equal true,  values_format.instance_of?(Array)
     assert_equal values_type, ['ExactMatch']
   end
+
+  def test_extract_query_params_should_support_rfc_example_when_uri_created_from_uri_string
+    href = 'https://example.com/request?b5=%3D%253D&a3=a&c%40=&a2=r%20b'
+    params = OAuth.extract_query_params(href)
+
+    assert_equal params['b5'], ['%3D%253D']
+    assert_equal params['a3'], ['a']
+    assert_equal params['c%40'], ['']
+    assert_equal params['a2'], ['r%20b']
+  end
+
+  def test_extract_query_params_should_support_rfc_example_when_uri_created_from_components
+    uri = URI::HTTPS.build(host: 'example.com', query: 'b5=%3D%253D&a3=a&c%40=&a2=r%20b').to_s
+    params = OAuth.extract_query_params(uri)
+
+    assert_equal params['b5'], ['%3D%253D']
+    assert_equal params['a3'], ['a']
+    assert_equal params['c%40'], ['']
+    assert_equal params['a2'], ['r%20b']
+  end
+
+  def test_extract_query_params_should_not_encode_params_when_uri_created_from_string_with_decoded_params
+    href = 'https://example.com/request?colon=:&plus=+&comma=,'
+    params = OAuth.extract_query_params(href)
+
+    assert_equal params['colon'], [':']
+    assert_equal params['plus'], ['+']
+    assert_equal params['comma'], [',']
+  end
 end
