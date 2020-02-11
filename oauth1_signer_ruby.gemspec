@@ -1,7 +1,7 @@
 Gem::Specification.new do |gem|
   gem.name          = "mastercard_oauth1_signer"
   gem.authors       = ["Mastercard"]
-  gem.summary       = %q{OAuth signature SDK}
+  gem.summary       = %q{Mastercard client authentication library}
   gem.description   = %q{Zero dependency library for generating a Mastercard API compliant OAuth signature}
   gem.version       = "1.1.0"
   gem.license       = "MIT"
@@ -10,6 +10,9 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
-  gem.add_development_dependency "bundler", "~> 1.5"
-  gem.add_development_dependency "rake", "~> 0"
+  
+  gem.add_development_dependency 'bundler', '>= 1.5'
+  gem.add_development_dependency 'minitest', '~> 5.0'
+  gem.add_development_dependency 'rake', '~> 10.0'
+  gem.add_development_dependency 'simplecov', '~> 0.16.1'
 end
