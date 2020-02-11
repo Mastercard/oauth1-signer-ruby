@@ -40,7 +40,7 @@ As part of this set up, you'll receive credentials for your app:
 ### Adding the Library to Your Project <a name="adding-the-library-to-your-project"></a>
 
 ```shell
-gem install mastercard_oauth1_signer.gem
+gem install mastercard_oauth1_signer
 ```
 
 ### Loading the Signing Key <a name="loading-the-signing-key"></a>
