@@ -114,8 +114,11 @@ class OAuth
     def get_base_uri_string(uri)
       url = URI.parse(uri)
       # Lowercase scheme and authority
-      # Remove query and fragment
-      "#{url.scheme.downcase}://#{url.host.downcase}#{url.path}"
+      # Remove redundant port, query, and fragment
+      base_uri = "#{url.scheme.downcase}://#{url.host.downcase}"
+      base_uri += ":#{url.port}" if url.scheme.downcase == "https" and url.port != 443
+      base_uri += ":#{url.port}" if url.scheme.downcase == "http" and url.port != 80
+      base_uri += "/#{url.path[1..-1]}"
     end
 
     #
@@ -126,7 +129,6 @@ class OAuth
     # @param {Map<String, String>} oauthParamsMap Map of OAuth parameters to be included in Authorization header
     # @return {String} Correctly encoded and sorted OAuth parameter string
     #
-
     def to_oauth_param_string(query_params_map, oauth_param_map)
       consolidated_params = {}.merge(query_params_map)
 

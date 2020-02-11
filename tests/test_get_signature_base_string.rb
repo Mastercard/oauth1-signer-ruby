@@ -18,7 +18,6 @@ class TestGetSignatureBaseString < Minitest::Test
   def test_creates_a_correctly_constructed_and_escaped_signature_base_string_given_encoded_params
 
     http_method = "GET"
-    base_uri = "https://example.com/?param=token1%3Atoken2"
     consumer_key = "aaa!aaa"
 
     query_params = OAuth.extract_query_params'https://example.com/?param=token1%3Atoken2'
@@ -34,7 +33,6 @@ class TestGetSignatureBaseString < Minitest::Test
 
       http_method = "GET"
       consumer_key = "aaa!aaa"
-      base_uri = "https://example.com"
 
       query_params = OAuth.extract_query_params'https://example.com/?param=token1:token2'
       oauth_params = OAuth.get_oauth_params consumer_key
