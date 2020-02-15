@@ -47,6 +47,8 @@ gem install mastercard_oauth1_signer
 
 The following code shows how to load the private key using `OpenSSL`:
 ```ruby
+require 'openssl'
+
 is = File.binread("<insert PKCS#12 key file path>");
 signing_key = OpenSSL::PKCS12.new(is, "<insert key password>").key;
 ```
@@ -55,6 +57,8 @@ signing_key = OpenSSL::PKCS12.new(is, "<insert key password>").key;
 The method that does all the heavy lifting is `OAuth.get_authorization_header`. You can call into it directly and as long as you provide the correct parameters, it will return a string that you can add into your request's `Authorization` header.
 
 ```ruby
+require 'oauth'
+
 consumer_key = "<insert consumer key>";
 uri = "https://sandbox.api.mastercard.com/service";
 method = "POST";
