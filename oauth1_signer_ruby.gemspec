@@ -13,6 +13,6 @@ Gem::Specification.new do |gem|
   
   gem.add_development_dependency 'bundler', '>= 1.5'
   gem.add_development_dependency 'minitest', '~> 5.0'
-  gem.add_development_dependency 'rake', '~> 10.0'
+  gem.add_development_dependency 'rake', ">= 12.3.3"
   gem.add_development_dependency 'simplecov', '~> 0.16.1'
 end
