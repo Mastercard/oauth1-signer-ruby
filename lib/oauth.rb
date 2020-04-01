@@ -75,9 +75,7 @@ class OAuth
     def get_oauth_params(consumer_key, payload = nil)
       oauth_params = {}
 
-      unless payload.nil?
-        oauth_params['oauth_body_hash'] = get_body_hash(payload)
-      end
+      oauth_params['oauth_body_hash'] = get_body_hash(payload)
       oauth_params['oauth_consumer_key'] = consumer_key
       oauth_params['oauth_nonce'] = get_nonce
       oauth_params['oauth_signature_method'] = "RSA-SHA#{SHA_BITS}"
