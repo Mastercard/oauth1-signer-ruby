@@ -1,5 +1,4 @@
 require 'minitest/autorun'
-require 'test/unit'
 require 'minitest/mock'
 require_relative '../lib/oauth'
 

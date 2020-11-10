@@ -1,5 +1,4 @@
 require 'minitest/autorun'
-require 'test/unit'
 require_relative '../lib/oauth'
 
 class TestOAuthExtractQueryParams < Minitest::Test
